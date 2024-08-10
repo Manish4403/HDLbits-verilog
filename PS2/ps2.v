@@ -11,7 +11,7 @@ module top_module(
     always@(*) begin
         case(state)
             s0: next_state = in[3] ? s1 : s0;
-            s1: next_state = (count < 2'd1) ? s1 : s2;
+	    s1: next_state = (count < 2'd1) ? s1 : s2; \\counter should count only one state.
             s2: next_state = in[3] ? s1: s0;
             default next_state = s0;
         endcase
