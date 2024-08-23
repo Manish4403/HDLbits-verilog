@@ -15,13 +15,13 @@ module top_module (
     always@(*) begin
         case(state)
             s0: next = !resetn ? s0 : s1;
-            s1: next = s2;
-            s2: next = x ? s3 : s2;
+            s1: next = s2;    // f == 1
+            s2: next = x ? s3 : s2;  
             s3: next = x ? s3 : s4;
             s4: next = x ? s5 : s2;
             s5: next = y ? s6 : s7; // g == 1
             s6: next = s6; //g == 1
-            s7: next = y ? s8 : s9;
+            s7: next = y ? s8 : s9; //g == 1
             s8: next = s8;  // g == 1
             s9: next = s9; // g== 0
             default next = s0;
